@@ -169,6 +169,145 @@ const pickNeeds:Pick<ApiResponse,"name"> = {
     name:"karim"
 }
 
+// Create a generic function `wrapInArray`
+// that takes any value and returns it inside an array.
+// Example: wrapInArray(5) -> [5]
+
+
+function wrapInArray(n:number):number[] {
+    return [n]
+}
+
+let res3 = wrapInArray(5);
+console.log(res3);
+
+// Create a `User` type with
+// id: number
+// name: string
+// isAdmin?: boolean (optional)
+
+interface User3 {
+    id:number,
+    name:string,
+    isAdmin:boolean
+}
+
+const u3:User3 = {
+    id:1,
+    name:"karim",
+    isAdmin:true,
+}
+console.log(u3);
+
+// Write a function `printLength`
+// It accepts either a string or an array.
+// If string → print string length
+// If array → print array length
+
+function printLength(item:string | string[]):number {
+    return item.length
+}
+let res4 = printLength("karim");
+let res5 = printLength(["karim","ali"]);
+
+console.log(res4);
+console.log(res5);
+
+// Create interface Person { name: string }
+// Create interface Employee that extends Person and adds salary: number
+
+interface Person2 {
+    name:string
+}
+
+interface Employee2 extends Person2 {
+    salary:number
+}
+
+const e3:Employee2 = {name:"karim", salary:15000};
+
+// Create a Record type named `Scores`
+// keys: "math" | "science" | "english"
+// values: number
+
+type Scores = "math"|"science"|"english"
+
+const s:Record<Scores,number> ={
+    math:15,
+    science:20,
+    english:25
+}
+
+// Create interface ApiResponse<T> with:
+// data: T
+// status: number
+// message: string
+
+interface ApiResponse2<T> {
+    data:T,
+    status:number,
+    message:string
+}
+
+const apiResponse:ApiResponse2<string> = {
+    data:"hello i am string",
+    status:200,
+    message:"good luck"
+}
+
+// Given type Product { id:number; name:string; price:number }
+// Create:
+// a) type ProductUpdate = Partial<Product>
+// b) type ProductStrict = Required<Product>
+
+type Product ={
+    id:number,
+    name:string,
+    price:number
+}
+
+const ProductUpdate:Partial<Product>={
+    name:"laptop",
+    price:1000
+}
+
+const ProductStrict:Required<Product> = {
+    id:1,
+    name:"laptop",
+    price:10000
+}
+
+// Create a function `getProp`
+// Accepts object and key
+// Returns the object[key]
+// Key must be a valid key of the object
+
+function getProp<T,K extends keyof T>(obj:T,key:K):T[K] {
+    return obj[key]
+}
+const user4 = {
+    id:1,
+    name:"karim",
+    isAdmin:true
+}
+
+let res6 = getProp(user4,"id");
+console.log(res6);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
